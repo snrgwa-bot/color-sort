@@ -1,0 +1,143 @@
+/* Color Sort — shared styles. Palette lifted from LiquidColor.swift. */
+:root {
+    --red:#f55c5c; --orange:#ff9447; --amber:#ffcc4d; --lime:#b3dc5c;
+    --green:#5ccc75; --teal:#45ccb5; --cyan:#5cc7eb; --blue:#578cf5;
+    --indigo:#7370eb; --purple:#a870eb; --pink:#f275bd; --brown:#b3855c;
+    --accent:#3b73f2;
+    --bg:#0b0a14; --bg-2:#141126; --card:rgba(255,255,255,.055);
+    --line:rgba(255,255,255,.10);
+    --text:#f2f0f8; --muted:#a7a2bd; --faint:#736e8c;
+    --radius:22px;
+    --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{background:var(--bg)}   /* bg lives on html so body::before glows stay visible */
+body{
+    font-family:var(--font);background:transparent;color:var(--text);
+    line-height:1.65;min-height:100vh;overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+}
+/* soft colour glows behind everything */
+body::before{
+    content:'';position:fixed;inset:-30vh -10vw;z-index:-1;pointer-events:none;
+    background:
+        radial-gradient(46vw 46vw at 10% 4%, rgba(87,140,245,.55), transparent 64%),
+        radial-gradient(42vw 42vw at 92% 10%, rgba(168,112,235,.50), transparent 66%),
+        radial-gradient(46vw 46vw at 80% 82%, rgba(69,204,181,.34), transparent 68%),
+        radial-gradient(38vw 38vw at 16% 88%, rgba(242,117,189,.32), transparent 68%);
+    filter:blur(26px);animation:drift 26s ease-in-out infinite alternate;
+}
+@keyframes drift{
+    from{transform:translate3d(0,0,0) scale(1)}
+    to{transform:translate3d(0,-3%,0) scale(1.07)}
+}
+
+/* ---------- nav ---------- */
+nav{
+    position:sticky;top:0;z-index:50;display:flex;align-items:center;
+    justify-content:center;gap:.35rem;padding:.85rem 1rem;
+    background:rgba(11,10,20,.62);backdrop-filter:blur(18px) saturate(1.5);
+    -webkit-backdrop-filter:blur(18px) saturate(1.5);
+    border-bottom:1px solid var(--line);
+}
+nav a{
+    color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:600;
+    letter-spacing:.04em;padding:.5rem .95rem;border-radius:999px;
+    transition:color .2s,background .2s;
+}
+nav a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+nav a.active{color:var(--text);background:rgba(255,255,255,.10)}
+
+/* ---------- layout ---------- */
+.content{max-width:760px;margin:0 auto;padding:4rem 1.5rem 1rem}
+.wide{max-width:1080px}
+h1{
+    font-size:clamp(2.1rem,6vw,3.4rem);font-weight:800;letter-spacing:-.03em;
+    line-height:1.08;text-align:center;margin-bottom:.6rem;
+}
+.grad{
+    background:linear-gradient(100deg,var(--cyan),var(--blue) 35%,var(--purple) 68%,var(--pink));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.updated,.lede{text-align:center;color:var(--muted);margin-bottom:2.5rem}
+.lede{font-size:clamp(1rem,2.4vw,1.18rem);max-width:34rem;margin-inline:auto}
+h2{
+    font-size:1.22rem;font-weight:700;letter-spacing:-.01em;
+    margin:2.4rem 0 .7rem;color:var(--text);
+}
+p,li{color:var(--muted);margin-bottom:.8rem}
+strong{color:var(--text);font-weight:650}
+ul{padding-left:1.3rem;margin-bottom:1.1rem}
+li::marker{color:var(--faint)}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- cards ---------- */
+.card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:1.7rem;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.card h2:first-child{margin-top:0}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin:2.2rem 0}
+.feat{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.4rem;
+    transition:transform .25s ease,border-color .25s ease;
+}
+.feat:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2)}
+.feat .dot{width:38px;height:38px;border-radius:12px;margin-bottom:.85rem}
+.feat h3{font-size:1rem;font-weight:700;margin-bottom:.35rem;color:var(--text)}
+.feat p{font-size:.92rem;margin:0}
+
+/* ---------- hero tubes ---------- */
+.tubes{
+    display:flex;justify-content:center;align-items:flex-end;gap:clamp(.5rem,2.4vw,1.1rem);
+    margin:2.5rem 0 3rem;height:210px;
+}
+.tube{
+    position:relative;width:clamp(38px,9vw,54px);height:100%;
+    border:2px solid rgba(255,255,255,.20);border-top:none;
+    border-radius:6px 6px 26px 26px;overflow:hidden;
+    background:rgba(255,255,255,.045);
+    box-shadow:inset 0 -14px 26px rgba(0,0,0,.28), 0 12px 34px rgba(0,0,0,.4);
+    animation:bob 4.6s ease-in-out infinite;
+}
+.tube::after{ /* glass highlight */
+    content:'';position:absolute;top:0;left:14%;width:16%;height:100%;
+    background:linear-gradient(rgba(255,255,255,.30),rgba(255,255,255,.04));
+}
+.tube i{display:block;width:100%;height:25%;animation:fill 3.2s cubic-bezier(.5,0,.2,1) backwards}
+.tube:nth-child(2){animation-delay:.35s} .tube:nth-child(3){animation-delay:.7s}
+.tube:nth-child(4){animation-delay:1.05s} .tube:nth-child(5){animation-delay:1.4s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes fill{from{height:0}to{height:25%}}
+
+/* ---------- buttons ---------- */
+.cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:.5rem}
+.btn{
+    display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.7rem;
+    border-radius:999px;font-weight:650;font-size:.98rem;text-decoration:none;
+    transition:transform .2s,box-shadow .2s,background .2s;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{
+    background:linear-gradient(100deg,var(--blue),var(--indigo) 55%,var(--purple));
+    color:#fff;box-shadow:0 10px 30px rgba(87,112,235,.42);
+}
+.btn-primary:hover{box-shadow:0 14px 38px rgba(87,112,235,.55)}
+.btn-ghost{background:rgba(255,255,255,.07);color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+/* ---------- footer ---------- */
+footer{
+    text-align:center;padding:3rem 1.5rem 2.5rem;color:var(--faint);font-size:.86rem;
+    border-top:1px solid var(--line);margin-top:3rem;
+}
+footer a{color:var(--muted)}
+.swatches{display:flex;justify-content:center;gap:.4rem;margin-bottom:1.4rem}
+.swatches span{width:11px;height:11px;border-radius:50%}
+
+@media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+}

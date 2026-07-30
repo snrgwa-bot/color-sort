@@ -1,61 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Sort</title>
-<style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #16121f 0%, #0e0b16 50%, #16121f 100%);
-            color: #e9e4f2;
-            min-height: 100vh;
-        }
-        nav {
-            display: flex; justify-content: center; gap: 2rem; padding: 1.5rem;
-            background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(140,110,220,0.2);
-        }
-        nav a {
-            color: #a98cf0; text-decoration: none; font-size: 0.9rem;
-            letter-spacing: 2px; text-transform: uppercase;
-        }
-        nav a:hover { color: #e9e4f2; }
-        .content { max-width: 700px; margin: 0 auto; padding: 3rem 2rem; }
-        h1 { font-size: 2rem; color: #a98cf0; letter-spacing: 3px; margin-bottom: 0.5rem; text-align: center; }
-        .updated { text-align: center; color: #7c7490; font-size: 0.85rem; margin-bottom: 2rem; }
-        h2 { font-size: 1.2rem; color: #a98cf0; margin: 2rem 0 0.75rem; }
-        p, li { color: #b6b0c6; line-height: 1.7; margin-bottom: 0.75rem; }
-        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-        a { color: #a98cf0; }
-        footer {
-            text-align: center; padding: 2rem; color: #7c7490; font-size: 0.8rem;
-            border-top: 1px solid rgba(140,110,220,0.1); margin-top: 2rem;
-        }
-        footer a { color: #a98cf0; text-decoration: none; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color Sort — a calm pouring puzzle</title>
+<meta name="description" content="Pour the liquids from tube to tube until every colour finds its way home. Hundreds of levels, no timers, playable offline.">
+<meta name="theme-color" content="#0b0a14">
+<meta property="og:title" content="Color Sort — a calm pouring puzzle">
+<meta property="og:description" content="Pour the liquids from tube to tube until every colour finds its way home. Hundreds of levels, no timers, playable offline.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="support.html">Support</a>
-        <a href="privacy.html">Privacy</a>
-    </nav>
+<nav><a href="index.html" class="active">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+<div class="content wide">
+  <h1><span class="grad">Color Sort</span></h1>
+  <p class="lede">A calm pouring puzzle. Tip the liquids from tube to tube until every colour finds its way home.</p>
+  <div class="tubes" aria-hidden="true">
+    <div class="tube"><i style="background:linear-gradient(var(--cyan),var(--blue))"></i><i style="background:linear-gradient(var(--cyan),var(--blue))"></i><i style="background:linear-gradient(var(--purple),var(--indigo))"></i><i style="background:linear-gradient(var(--pink),var(--red))"></i></div>
+    <div class="tube"><i style="background:linear-gradient(var(--green),var(--teal))"></i><i style="background:linear-gradient(var(--amber),var(--orange))"></i><i style="background:linear-gradient(var(--amber),var(--orange))"></i><i style="background:linear-gradient(var(--cyan),var(--blue))"></i></div>
+    <div class="tube"><i style="background:linear-gradient(var(--purple),var(--indigo))"></i><i style="background:linear-gradient(var(--purple),var(--indigo))"></i><i style="background:linear-gradient(var(--lime),var(--green))"></i><i style="background:linear-gradient(var(--amber),var(--orange))"></i></div>
+    <div class="tube"><i style="background:linear-gradient(var(--pink),var(--red))"></i><i style="background:linear-gradient(var(--lime),var(--green))"></i><i style="background:linear-gradient(var(--cyan),var(--blue))"></i><i style="background:linear-gradient(var(--teal),var(--green))"></i></div>
+    <div class="tube"><i style="background:linear-gradient(var(--amber),var(--orange))"></i><i style="background:linear-gradient(var(--pink),var(--red))"></i><i style="background:linear-gradient(var(--indigo),var(--blue))"></i><i style="background:linear-gradient(var(--lime),var(--green))"></i></div>
+  </div>
 
-    <div class="content">
-        <h1>Color Sort</h1>
-        <p class="updated">A relaxing colour-sorting puzzle for iPhone and iPad.</p>
-        <p>Pour the liquids between tubes until every tube holds a single colour. Hundreds of hand-tuned levels, no timers, no pressure — play at your own pace.</p>
-        <p>Color Sort is free to play, supported by ads, with a one-time purchase available to remove them.</p>
-        <h2>Links</h2>
-        <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="support.html">Support</a></li>
-        </ul>
-    </div>
-    <footer>
-        <p>&copy; 2026 Dumitru Bumbu &middot; Essential Dev Team. All rights reserved.</p>
-    </footer>
-
+  <div class="cta">
+    <a class="btn btn-primary" href="https://apps.apple.com/app/id6782551222">Download on the App Store</a>
+    <a class="btn btn-ghost" href="support.html">Get support</a>
+  </div>
+  <div class="grid"><div class="feat"><div class="dot" style="background:linear-gradient(140deg,var(--blue),var(--indigo))"></div><h3>Pour, don't rush</h3><p>No timers and no lives. Take as long as you like on every level.</p></div><div class="feat"><div class="dot" style="background:linear-gradient(140deg,var(--purple),var(--indigo))"></div><h3>Hundreds of levels</h3><p>Hand-tuned puzzles that ease you in and get properly tricky later.</p></div><div class="feat"><div class="dot" style="background:linear-gradient(140deg,var(--teal),var(--indigo))"></div><h3>Undo anything</h3><p>Change your mind freely — a wrong pour is never the end of a run.</p></div><div class="feat"><div class="dot" style="background:linear-gradient(140deg,var(--pink),var(--indigo))"></div><h3>Play offline</h3><p>Everything runs on your device. No account, no sign-up, no internet needed.</p></div><div class="feat"><div class="dot" style="background:linear-gradient(140deg,var(--amber),var(--indigo))"></div><h3>Your own look</h3><p>Pick the background that suits you and keep the board easy on the eyes.</p></div><div class="feat"><div class="dot" style="background:linear-gradient(140deg,var(--green),var(--indigo))"></div><h3>Climb the board</h3><p>An optional Game Center leaderboard for the highest level you've cleared.</p></div></div>
+  <div class="card">
+    <h2>How to play</h2>
+    <p>Tap a tube to lift its top colour, then tap another tube to pour it in. A colour will only pour onto the same colour, or into empty space.</p>
+    <p>Clear the level by gathering every colour into a tube of its own. If you get stuck, undo as many moves as you need — or restart the level and try a different order.</p>
+  </div>
+</div>
+<footer>
+  <div class="swatches"><span style="background:var(--red)"></span><span style="background:var(--orange)"></span><span style="background:var(--amber)"></span><span style="background:var(--lime)"></span><span style="background:var(--green)"></span><span style="background:var(--teal)"></span><span style="background:var(--cyan)"></span><span style="background:var(--blue)"></span><span style="background:var(--indigo)"></span><span style="background:var(--purple)"></span><span style="background:var(--pink)"></span><span style="background:var(--brown)"></span></div>
+  <p>&copy; 2026 Dumitru Bumbu &middot; Essential Dev Team. All rights reserved.</p>
+  <p style="margin-top:.5rem"><a href="index.html">Home</a> &middot; <a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy</a></p>
+</footer>
 </body>
 </html>
